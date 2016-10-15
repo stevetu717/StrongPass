@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="loginBackground">#171f4d</color>
+    <color name="white">#ffffff</color>
+    <color name="cm_blue">#3ad9ed</color>
+
+    <!-- Accounts List -->
+    <color name="cm_colorPrimary">#182329</color>
+    <color name="cm_text_colorPrimary">#c7c7c7</color>
+    <color name="cm_windowBackground">#e5e5e5</color>
+    <color name="cm_textColor">#282828</color>
+    <color name="cm_underline">#1cbeb1</color>
+</resources>

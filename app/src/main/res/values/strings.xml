@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">StrongPass</string>
+    <string name="sharedPrefs">sharedPrefs</string>
+    <string name="loginButton">Login</string>
+    <string name="masterPasswordKey">masterPassword</string>
+
+    // Registration
+    <string name="registrationPrompt">Create A Master Key</string>
+    <string name="passwordHint">Master Password</string>
+    <string name="registrationButton">Register</string>
+    <string name="dialogPrompt">Password</string>
+    <string name="requirements">Requirements: lower case, upper case, number, symbol</string>
+
+    // Password Strengths
+    <string name="invalid">Invalid Password</string>
+    <string name="weak">Weak</string>
+    <string name="adequate">Adequate</string>
+    <string name="strong">Strong</string>
+    <string name="veryStrong">Very Strong</string>
+
+    // AccountList
+    <string name="actionAdd">Add</string>
+</resources>
