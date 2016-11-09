@@ -10,7 +10,8 @@
     <!-- Accounts List -->
     <color name="cm_colorPrimary">#182329</color>
     <color name="cm_text_colorPrimary">#c7c7c7</color>
-    <color name="cm_windowBackground">#e5e5e5</color>
+    <color name="cm_windowBackground">#cccccc</color>
     <color name="cm_textColor">#282828</color>
     <color name="cm_underline">#1cbeb1</color>
+    <color name="cm_ripple">#a7a7a7</color>
 </resources>

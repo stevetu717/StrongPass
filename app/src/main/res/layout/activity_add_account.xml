@@ -24,24 +24,16 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/addAccount_passEdit"
+        android:id="@+id/addAccount_nameEdit"
+        android:textSize="18sp"
         android:backgroundTint="@color/cm_underline"
-        android:layout_alignBaseline="@+id/addAccount_passText"
-        android:layout_alignBottom="@+id/addAccount_passText"
-        android:layout_alignEnd="@+id/addAccount_nameEdit"
-        android:layout_toEndOf="@+id/addAccount_nameText" />
-
-    <TextView
-        android:text="Password: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/addAccount_passText"
-        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
-        android:textColor="@color/cm_textColor"
-        android:layout_below="@+id/addAccount_userEdit"
-        android:layout_alignParentStart="true" />
+        android:layout_marginStart="16dp"
+        android:layout_alignBaseline="@+id/addAccount_nameText"
+        android:layout_alignBottom="@+id/addAccount_nameText"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/addAccount_nameText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -55,61 +47,38 @@
         android:layout_toEndOf="@+id/addAccount_nameText"
         android:backgroundTint="@color/cm_underline"/>
 
-    <TextView
-        android:text="Username:"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addAccount_userText"
-        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
-        android:textColor="@color/cm_textColor"
-        android:layout_below="@+id/addAccount_nameEdit"
-        android:layout_alignParentStart="true" />
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/addAccount_passEdit"
+        android:backgroundTint="@color/cm_underline"
+        android:layout_alignBaseline="@+id/addAccount_passText"
+        android:layout_alignBottom="@+id/addAccount_passText"
+        android:layout_alignEnd="@+id/addAccount_nameEdit"
+        android:layout_toEndOf="@+id/addAccount_nameText" />
 
-    <TextView
-        android:text="Random:"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addAccount_randomText"
-        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
-        android:textColor="@color/cm_textColor"
-        android:layout_alignBaseline="@+id/addAccount_generateButton"
-        android:layout_alignBottom="@+id/addAccount_generateButton"
-        android:layout_alignEnd="@+id/addAccount_strengthTextView" />
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:backgroundTint="@color/cm_underline"
+        android:id="@+id/addAccount_descriptionEdit"
+        android:layout_alignBaseline="@+id/addAccount_descriptionText"
+        android:layout_alignBottom="@+id/addAccount_descriptionText"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/addAccount_nameEdit" />
 
     <TextView
         android:layout_height="wrap_content"
         android:id="@+id/addAccount_randomString"
-        android:layout_toRightOf="@id/addAccount_randomText"
         android:layout_alignBottom="@+id/addAccount_randomText"
         android:layout_toEndOf="@+id/addAccount_userText"
         android:layout_width="170dp"
         android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
-        android:textColor="@color/cm_textColor"
-        android:text="ttttttttttttttttttttttttttttt" />
-
-    <Button
-        android:text="Generate"
-        android:layout_width="wrap_content"
-        android:id="@+id/addAccount_generateButton"
-        android:textAppearance="@android:style/TextAppearance.Material.Widget.Button"
-        android:textColor="@color/cm_underline"
-        android:textSize="14sp"
-        style="@android:style/Widget.Material.Button.Small"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/addAccount_passEdit"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="Strength:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/addAccount_strengthTextView"
-        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
-        android:textColor="@color/cm_textColor"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/addAccount_generateButton"
-        android:layout_alignParentStart="true" />
+        android:textColor="@color/cm_textColor" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -140,7 +109,8 @@
         android:id="@+id/addAccount_addButton"
         android:layout_marginBottom="13dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@color/cm_underline"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -152,18 +122,109 @@
         android:layout_alignBottom="@+id/addAccount_strengthTextView"
         android:layout_alignStart="@+id/addAccount_randomString" />
 
-    <EditText
+    <TextView
+        android:text="Password: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/addAccount_nameEdit"
-        android:textSize="18sp"
-        android:backgroundTint="@color/cm_underline"
-        android:layout_marginStart="16dp"
-        android:layout_alignBaseline="@+id/addAccount_nameText"
-        android:layout_alignBottom="@+id/addAccount_nameText"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/addAccount_nameText" />
+        android:id="@+id/addAccount_passText"
+        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
+        android:textColor="@color/cm_textColor"
+        android:layout_below="@+id/addAccount_userEdit"
+        android:layout_alignStart="@+id/addAccount_userText"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addAccount_descriptionText"
+        android:text="Description: "
+        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
+        android:textColor="@color/cm_textColor"
+        android:layout_below="@+id/addAccount_passEdit"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:text="Strength:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addAccount_strengthTextView"
+        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
+        android:textColor="@color/cm_textColor"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/addAccount_generateButton"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Username:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addAccount_userText"
+        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
+        android:textColor="@color/cm_textColor"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/addAccount_nameEdit"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Random:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addAccount_randomText"
+        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
+        android:textColor="@color/cm_textColor"
+        android:layout_alignBaseline="@+id/addAccount_generateButton"
+        android:layout_alignBottom="@+id/addAccount_generateButton"
+        android:layout_alignEnd="@+id/addAccount_strengthTextView" />
+
+    <Button
+        android:text="Generate"
+        android:layout_width="wrap_content"
+        android:id="@+id/addAccount_generateButton"
+        android:textAppearance="@android:style/TextAppearance.Material.Widget.Button"
+        android:textColor="@color/cm_underline"
+        android:textSize="14sp"
+        style="@android:style/Widget.Material.Button.Small"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/addAccount_descriptionText"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="It would take"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addAccount_takeText"
+        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
+        android:textColor="@color/cm_textColor"
+        android:textAlignment="center"
+        android:layout_below="@+id/addAccount_entropyText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tdsiufghcskdjhskjdcfjks"
+        android:layout_below="@id/addAccount_takeText"
+        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
+        android:textColor="@color/cm_textColor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textSize="25sp"
+        android:id="@+id/addAccount_timeText"
+        />
+
+    <TextView
+        android:text="to brute force this password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addAccount_yearText"
+        android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
+        android:textColor="@color/cm_textColor"
+        android:textAlignment="center"
+        android:layout_below="@+id/addAccount_timeText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
 </RelativeLayout>

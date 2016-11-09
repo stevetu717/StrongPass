@@ -44,18 +44,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    public Cursor getAccountsCursor(){
+    public Cursor getAccountListCursor(){
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery( "select id as _id," +  ACCOUNTS_COL_ACCOUNT + " from " + ACCOUNTS_TABLE_NAME, null );
+        return db.rawQuery( "select id as _id," +  ACCOUNTS_COL_ACCOUNT + "," + ACCOUNTS_COL_DESCRIPTION + " from " + ACCOUNTS_TABLE_NAME, null );
     }
 
-    public boolean insertAccount(String account, String name, String password/*, String description*/){
+    public Cursor getAccountDetails(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery( "select * from " + ACCOUNTS_TABLE_NAME + " where id" + "=" + id, null );
+    }
+
+    public boolean insertAccount(String account, String name, String password, String description){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(ACCOUNTS_COL_ACCOUNT, account);
         contentValues.put(ACCOUNTS_COL_USERNAME, name);
         contentValues.put(ACCOUNTS_COL_PASSWORD, password);
-        //contentValues.put(ACCOUNTS_COL_DESCRIPTION, description);
+        contentValues.put(ACCOUNTS_COL_DESCRIPTION, description);
         db.insert(ACCOUNTS_TABLE_NAME, null, contentValues);
         return true;
     }
