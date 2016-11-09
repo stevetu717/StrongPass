@@ -16,21 +16,20 @@ import java.util.ArrayList;
  * Created by Steve on 9/25/2016.
  */
 
-public class ListViewCursorAdapter extends ArrayAdapter<String>{
+public class ListViewCursorAdapter{
+/*
+    private LayoutInflater cursorInflater;
 
-    private final Context context;
-    private final String[] values;
-
-    public ListViewCursorAdapter(Context context, String[] values) {
-        super(context, -1, values);
-        this.context = context;
-        this.values = values;
-
+    public ListViewCursorAdapter(Context context, Cursor cursor, int flags) {
+        super(context, cursor, flags);
+        cursorInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    @Override
-    public boolean areAllItemsEnabled() {
-        return true;
+    public void bindView(View view, Context context, Cursor cursor) {
+        TextView rowTitle = (TextView) view.findViewById(R.id.row_title);
+
+        String title = cursor.getString( cursor.getColumnIndex( MyTable.COLUMN_TITLE ) );
+        textViewTitle.setText(title);
     }
 
     @Override
@@ -42,5 +41,5 @@ public class ListViewCursorAdapter extends ArrayAdapter<String>{
         //textView.setText(values[position]);
 
         return rowView;
-    }
+    }*/
 }

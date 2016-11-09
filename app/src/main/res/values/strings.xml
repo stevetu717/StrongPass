@@ -20,4 +20,16 @@
 
     // AccountList
     <string name="actionAdd">Add</string>
+
+    // Account Stuff
+    <string name ="accountName">Account Name: </string>
+    <string name ="accountUserName">Username: </string>
+    <string name ="accountPassword">Password: </string>
+    <string name ="accountDescription">Description: </string>
+    <string name ="additionalInfo">Additional Information:  </string>
+
+
+
+
+
 </resources>

@@ -1,6 +1,7 @@
 package com.steve.strongpass;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
@@ -11,16 +12,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-public class AccountList extends Activity {
+import static android.R.id.list;
+
+public class AccountList extends ListActivity {
 
     private DatabaseHelper databaseHelper;
-    private ListView listView;
     private Cursor cursor;
-    private ListViewCursorAdapter listViewCursorAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +31,21 @@ public class AccountList extends Activity {
         setContentView(R.layout.activity_account_list);
 
         databaseHelper = new DatabaseHelper(this);
-        cursor = databaseHelper.getAccountsCursor();
+        cursor = databaseHelper.getAccountListCursor();
 
         // listViewCursorAdapter = new ListViewCursorAdapter(this, cursor, 0);
-        ListAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, new String[]{"account"}, new int[] {android.R.id.text1});
-        listView = (ListView) findViewById(R.id.accountList);
-        listView.setAdapter(adapter);
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, cursor, new String[]{"account", "description"},
+                new int[] {android.R.id.text1, android.R.id.text2}, 0);
+        this.setListAdapter(adapter);
 
+    }
 
+    @Override
+    protected void onListItemClick(ListView listView, View view, int pos, long id){
+        super.onListItemClick(listView, view, pos, id);
+        Intent intent = new Intent(this, ViewPassword.class);
+        intent.putExtra("id", pos + 1);                                 // id is unique identifier for accounts in database - primary key
+        startActivity(intent);
 
     }
 

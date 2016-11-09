@@ -22,10 +22,13 @@
         </activity>
         <activity
             android:name=".AccountList"
-            android:theme="@style/cm_mod_custom"
-            />
-        <activity android:name=".AddAccount"
+            android:theme="@style/cm_mod_custom" />
+        <activity
+            android:name=".AddAccount"
             android:label="Add an Account"
+            android:theme="@style/cm_mod_custom" />
+        <activity
+            android:name=".ViewPassword"
             android:theme="@style/cm_mod_custom"/>
     </application>
 
