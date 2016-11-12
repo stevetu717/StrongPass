@@ -78,7 +78,8 @@
         android:layout_toEndOf="@+id/addAccount_userText"
         android:layout_width="170dp"
         android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
-        android:textColor="@color/cm_textColor" />
+        android:textColor="@color/cm_textColor"
+        android:textAlignment="center"/>
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -200,31 +201,31 @@
         android:textAlignment="center"
         android:layout_below="@+id/addAccount_entropyText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tdsiufghcskdjhskjdcfjks"
         android:layout_below="@id/addAccount_takeText"
         android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
         android:textColor="@color/cm_textColor"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:textSize="25sp"
         android:id="@+id/addAccount_timeText"
+        android:textAlignment="center"
         />
 
     <TextView
         android:text="to brute force this password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addAccount_yearText"
+        android:id="@+id/addAccount_brute"
         android:textAppearance="@style/cm_mod_custom.ActionBar.TitleTextStyle"
         android:textColor="@color/cm_textColor"
         android:textAlignment="center"
         android:layout_below="@+id/addAccount_timeText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="10dp"/>
 
 </RelativeLayout>
