@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,9 +34,10 @@ public class AddAccount extends Activity {
         final TextView crackTime = (TextView) findViewById(R.id.addAccount_timeText);
         final TextView take = (TextView) findViewById(R.id.addAccount_takeText);
         final TextView brute = (TextView) findViewById(R.id.addAccount_brute);
+        final ProgressBar bar = (ProgressBar) findViewById(R.id.progressBar4);
         take.setVisibility(View.INVISIBLE);
         brute.setVisibility(View.INVISIBLE);
-
+       // bar.setProgressTintList();
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +76,7 @@ public class AddAccount extends Activity {
                     take.setVisibility(View.INVISIBLE);
                     brute.setVisibility(View.INVISIBLE);
                 }
-
+                bar.setProgress(Crypto.strength(passwordInput.getText().toString()));
             }
 
             @Override

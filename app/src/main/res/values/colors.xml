@@ -14,4 +14,6 @@
     <color name="cm_textColor">#282828</color>
     <color name="cm_underline">#1cbeb1</color>
     <color name="cm_ripple">#a7a7a7</color>
+    <color name="green">#50b636</color>
+
 </resources>
