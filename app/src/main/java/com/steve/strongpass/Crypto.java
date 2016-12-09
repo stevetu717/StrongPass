@@ -1,15 +1,22 @@
 package com.steve.strongpass;
 
 import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Vector;
+
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 
 /**
  * Created by Steve on 11/9/2016.
  */
 
 public final class Crypto {
-    private static final int keysPerSecond = 2600000;
+    private static final int keysPerSecond = 13000000;
     private static final String charSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\\:;\"\'<>,.?/";
     private static char[] lower = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
     private static char[] upper = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
@@ -25,11 +32,17 @@ public final class Crypto {
             return "";
         }
         BigInteger kps = new BigInteger(Integer.toString(keysPerSecond));
+        BigInteger kpms =  new BigInteger(Integer.toString(keysPerSecond / 1000));
         BigInteger charSetLength = new BigInteger(Integer.toString(charSet.length()));
         BigInteger numCombinations = charSetLength.pow(passwordLength);
-
+        //numCombinations = numCombinations.divide(new BigInteger("2"));
         BigInteger seconds =  numCombinations.divide(kps);
+        BigInteger milliseconds = numCombinations.divide(kpms);
+        System.out.println(seconds.toString());
+        System.out.println(milliseconds.toString());
+
         BigInteger years = seconds.divide(new BigInteger("31536000"));
+
         if(years.compareTo(new BigInteger("1000")) == 1){
             return reduceYears(years);
         }else {
@@ -40,8 +53,13 @@ public final class Crypto {
             int r_secs = (int) Math.floor((((seconds.longValue() % 31536000) % 86400) % 3600) % 60);
             String total = "";
 
-            if (seconds.longValue() < 1) {
-                return "less than a second";
+            if (milliseconds.intValue() < 60000 && r_mins < 1) {
+                if(milliseconds.intValue() == 0)
+                    return "less than a millisecond";
+                else if(milliseconds.intValue() < 1000)
+                    return Integer.toString(milliseconds.intValue()) +  " milliseconds";
+                else
+                    return Integer.toString(seconds.intValue()) + " second and " + Integer.toString(milliseconds.intValue() % 1000) + " milliseconds";
             }
 
             if (r_years != 0) {
@@ -141,7 +159,7 @@ public final class Crypto {
         return new String(password);
     }
 
-    public int strength(String password) {
+    public static int strength(String password) {
         int length = password.length(),
             uppercase = 0,
             lowercase = 0,
@@ -176,6 +194,70 @@ public final class Crypto {
 
         return score;
 
+    }
+
+    public static byte[] generateSalt() {
+        SecureRandom random = new SecureRandom();
+        byte salt[] = new byte[16];
+        random.nextBytes(salt);
+        return salt;
+    }
+
+    public static String generateHash(String input, byte[] salt)
+    {
+        String generatedHash = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(salt);
+            byte[] bytes = md.digest(input.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            generatedHash = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return generatedHash;
+    }
+
+    public static boolean hasUpper(String input){
+
+        for (int i = 0; i < input.length(); i++) {
+            if (Character.isUpperCase(input.charAt(i)))
+                return true;
+        }
+        return false;
+    }
+
+    public static boolean hasLower(String input){
+
+        for (int i = 0; i < input.length(); i++) {
+            if (Character.isLowerCase(input.charAt(i)))
+                return true;
+        }
+        return false;
+    }
+
+    public static boolean hasNumber(String input){
+
+        for (int i = 0; i < input.length(); i++) {
+            if (Character.isDigit(input.charAt(i)))
+                return true;
+        }
+        return false;
+    }
+
+    public static boolean hasSymbol(String input){
+
+        for (int i = 0; i < input.length(); i++) {
+            if (!Character.isLetterOrDigit(input.charAt(i)))
+                return true;
+        }
+        return false;
     }
 
 }

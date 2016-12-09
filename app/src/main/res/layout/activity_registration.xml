@@ -32,16 +32,6 @@
         android:layout_centerHorizontal="true" />
 
 
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:text="@string/registrationButton"
-        android:id="@+id/registrationButton"
-        android:onClick="register"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="92dp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,6 +70,66 @@
         android:layout_marginTop="24dp"
         android:layout_alignStart="@+id/masterKeyInput"
         android:layout_alignEnd="@+id/masterKeyInput"
-        android:foregroundTint="@color/loginBackground" />
+        android:foregroundTint="@color/loginBackground"
+        android:progressBackgroundTint="@color/loginBackground"/>
+
+    <TextView
+        android:text="Lowercase (a-z)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/upper"
+        android:layout_alignEnd="@+id/registrationButton"
+        android:id="@+id/lower"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:text="Number (0-9)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/upper"
+        android:layout_alignStart="@+id/upper"
+        android:layout_marginTop="19dp"
+        android:id="@+id/number"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:text="Symbol (ASCII)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/number"
+        android:layout_alignStart="@+id/lower"
+        android:id="@+id/symbol"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="@string/registrationButton"
+        android:id="@+id/registrationButton"
+        android:onClick="register"
+        android:layout_marginBottom="33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Uppercase (A-Z)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:id="@+id/upper"
+        android:textColor="@color/white"
+        android:layout_below="@+id/requirements"
+        android:layout_alignStart="@+id/registrationButton" />
+
+    <TextView
+        android:text="Requirements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:id="@+id/requirements"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_below="@+id/passwordStrengthText"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

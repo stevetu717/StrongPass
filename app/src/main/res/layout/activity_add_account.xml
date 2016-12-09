@@ -86,11 +86,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/progressBar4"
         android:layout_marginTop="16dp"
-        android:progressTint="@color/cm_windowBackground"
+        android:progressTint="@color/cm_underline"
         android:indeterminateTint="@color/cm_windowBackground"
         android:layout_width="600dp"
         android:layout_below="@+id/addAccount_strengthTextView"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:progressBackgroundTint="@color/cm_windowBackground"
+        />
 
     <TextView
         android:text="Entropy:"
